@@ -5,6 +5,11 @@ https://github.com/rubenperezf/react-query-swagger
 
 ## REACT QUERY
 
+### Prerequisites
+
+node >=14.15.4 <15.0
+npm >=7.0.0
+
 ### Query Retries
 
 When a useQuery query fails (the query function throws an error), React Query will automatically retry the query if that query's request has not reached the max number of consecutive retries (defaults to 3) or a function is provided to determine if a retry is allowed.
