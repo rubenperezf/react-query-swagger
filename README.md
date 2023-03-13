@@ -21,3 +21,38 @@ Setting retry = (failureCount, error) => ... allows for custom logic based on wh
 ### refetchOnWindowFocus
 
 ### ReactQueryDevtools
+
+### Paginated Lagged Queries
+
+```
+  const {
+    isLoading,
+    isError,
+    error,
+    data,
+    isFetching,
+    isPreviousData,
+  } = useQuery({
+    queryKey: ['projects', page],
+    queryFn: () => fetchProjects(page),
+    keepPreviousData : true
+  })
+```
+
+### Infinite scroll
+
+```
+  const {
+    data,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    isFetchingNextPage,
+    status,
+  } = useInfiniteQuery({
+    queryKey: ['projects'],
+    queryFn: fetchProjects,
+    getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+  })
+```
